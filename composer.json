@@ -1,0 +1,24 @@
+{
+    "name": "dangson/xuong-oop-2",
+    "autoload": {
+        "psr-4": {
+            "Dangson\\XuongOop\\": "src/"
+        },
+        "files": [
+            "helper.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Đặng Văn Sơn",
+            "email": "dangvanson2102@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "eftec/bladeone": "^4.13",
+        "doctrine/dbal": "^4.0",
+        "rakit/validation": "^1.4",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

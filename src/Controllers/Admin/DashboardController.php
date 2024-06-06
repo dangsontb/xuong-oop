@@ -1,0 +1,13 @@
+<?php
+
+namespace Dangson\XuongOop\Controllers\Admin;
+
+use Dangson\XuongOop\Commons\Controller;
+use Dangson\XuongOop\Commons\Helper;
+
+class DashboardController extends Controller
+{
+    public function dashboard(){
+        $this-> renderViewAdmin(__FUNCTION__);
+    }
+}
