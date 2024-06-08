@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
        avoid_login();
 
-        $this->renderViewClient('login');
+        $this->renderViewClient('members.login');
     }
 
     public function login()
@@ -49,7 +49,6 @@ class LoginController extends Controller
             throw new \Exception('Password không đúng');
         } catch (\Throwable $th) {
             $_SESSION['error'] = $th->getMessage();
-
             header('Location: ' . url('auth/login'));
             exit;
         }
@@ -61,5 +60,14 @@ class LoginController extends Controller
 
         header('Location: ' . url());
         exit;
+    }
+
+    public function showFormRegister(){
+        avoid_register();
+        $this-> renderViewClient('members.register');
+    }
+
+    public function register(){
+        avoid_register();
     }
 }

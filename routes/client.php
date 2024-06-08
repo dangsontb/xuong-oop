@@ -14,20 +14,28 @@
 // HTTP Method: get, post, put (path), delete, option, head
 
 use Dangson\XuongOop\Controllers\Client\AboutController;
+use Dangson\XuongOop\Controllers\Client\CartController;
 use Dangson\XuongOop\Controllers\Client\ContactController;
 use Dangson\XuongOop\Controllers\Client\HomeController;
 use Dangson\XuongOop\Controllers\Client\LoginController;
 use Dangson\XuongOop\Controllers\Client\ProductController;
 
-$router->get( '/',                  HomeController::class       . '@index');
-$router->get( '/about',             AboutController::class      . '@index');
+$router->get( '/',                       HomeController::class       . '@index');
 
-$router->get( '/contact',           ContactController::class    . '@index');
-$router->post( '/contact/store',    ContactController::class    . '@store');
 
-$router->get( '/products',          ProductController::class    . '@index');
-$router->get( '/products/{id}',     ProductController::class    . '@detail');
+$router->get( 'about',                  AboutController::class      . '@index');
 
-$router->get( '/auth/login',             LoginController::class      . '@showFormLogin');
-$router->post( '/auth/handle-login',     LoginController::class      . '@login');
-$router->post( '/auth/logout',           LoginController::class      . '@logout');
+$router->get( 'contact',                ContactController::class    . '@index');
+$router->post( 'contact/store',         ContactController::class    . '@store');
+
+$router->get( 'productDetail/{id}',     ProductController::class    . '@detail');
+$router->get( 'products',               ProductController::class    . '@index');
+
+$router->get( 'auth/login',              LoginController::class      . '@showFormLogin');
+$router->post( 'auth/handle-login',     LoginController::class      . '@login');
+
+$router->get( 'auth/register',           LoginController::class      . '@showFormRegister');
+
+$router->post( 'auth/logout',           LoginController::class      . '@logout');
+
+$router->get( '/cart',                   CartController::class      . '@cart');

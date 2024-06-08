@@ -49,12 +49,12 @@ class ProductController extends Controller
             'category_id'   => 'required',
             'name'          => 'required|max:100',
             'overview'      => 'max:500',
+            'price_regular' => 'required|numeric',
             'content'       => 'max:6500',
             'img_thumbnail' => 'uploaded_file: 0,2048K,png,jpeg,jpg',
         ]);
 
         $validation->validate();
-
         if ($validation->fails()) {
             $_SESSION['errors'] = $validation->errors()->firstOfAll();
 
@@ -65,6 +65,8 @@ class ProductController extends Controller
                 'category_id'        => $_POST['category_id'],
                 'name'               => $_POST['name'],
                 'overview'           => $_POST['overview'],
+                'price_regular'      => $_POST['price_regular'],
+                'price_sale'         => $_POST['price_sale'] ?: null,
                 'content'            => $_POST['content'],
             ];
 
@@ -96,7 +98,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = $this->product->findByID($id);
-
         $this->renderViewAdmin('products.show', [
             'product'=> $product
         ]);
@@ -123,10 +124,11 @@ class ProductController extends Controller
         $validator = new Validator;
 
         $validation = $validator->make($_POST + $_FILES, [
-            'category_id' => 'required',
-            'name' => 'required|max:100',
-            'overview' => 'max:500',
-            'content' => 'max:6500',
+            'category_id'   => 'required',
+            'name'          => 'required|max:100',
+            'overview'      => 'max:500',
+            'price_regular' => 'required|numeric',
+            'content'       => 'max:6500',
             'img_thumbnail' => 'uploaded_file: 0,2048K,png,jpeg,jpg',
         ]);
 
@@ -143,6 +145,8 @@ class ProductController extends Controller
                 'name'               => $_POST['name'],
                 'overview'           => $_POST['overview'],
                 'content'            => $_POST['content'],
+                'price_regular'      => $_POST['price_regular'],
+                'price_sale'         => $_POST['price_sale'] ?: null,
                 'updated_at'         => date('Y-m-d H:i:s'),
             ];
 

@@ -1,13 +1,13 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
     <div class="logo d-flex justify-content-between">
-        <a href="index-2.html"><img src="{{asset('assets/admin/img/logo.png')}}" alt></a>
+        <a href=" {{ url("admin/")}}"><img src="{{asset('assets/admin/img/logo.png')}}" alt></a>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
     </div>
     <ul id="sidebar_menu">
         <li class="mm-active">
-            <a class="" href="{{url('/admin')}}" aria-expanded="false">
+            <a class="" href="{{url('admin')}}" aria-expanded="false">
                 <div class="icon_menu">
                     <img src="{{asset('assets/admin/img/menu-icon/dashboard.svg') }}" alt>
                 </div>

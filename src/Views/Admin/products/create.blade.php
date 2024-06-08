@@ -39,18 +39,27 @@
                     <input type="file" class="form-control" id="img_thumbnail" placeholder="Enter img_thumbnail"
                         name="img_thumbnail">
                 </div>
+                <div class="mb-3 mt-3">
+                    <label for="content" class="form-label">Content:</label>
+                    <textarea class="form-control" id="content" rows="4" placeholder="Enter content" name="content"></textarea>
+                </div>
             </div>
 
             <div class="col-md-6">
+                <div class="mb-3 mt-3">
+                    <label for="price_regular" class="form-label">Giá gốc:</label>
+                    <input type="number" class="form-control" id="price_regular" placeholder="Enter price_regular" name="price_regular">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="price_sale" class="form-label">Giá khuyến mãi:</label>
+                    <input type="number" class="form-control" id="price_sale" placeholder="Enter price_sale" name="price_sale">
+                </div>
                 <div class="mb-3 mt-3">
                     <label for="overview" class="form-label">Overview:</label>
                     <textarea class="form-control" id="overview" placeholder="Enter overview" name="overview"></textarea>
                 </div>
 
-                <div class="mb-3 mt-3">
-                    <label for="content" class="form-label">Content:</label>
-                    <textarea class="form-control" id="content" rows="4" placeholder="Enter content" name="content"></textarea>
-                </div>
+                
             </div>
         </div>
 

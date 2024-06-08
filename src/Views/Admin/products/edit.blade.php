@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @if (!empty($_SESSION['errors']))
+    @if (!empty($_SESSION['errors']) )
         <div class="alert alert-warning">
             <ul>
                 @foreach ($_SESSION['errors'] as $error)
@@ -17,6 +17,17 @@
             unset($_SESSION['errors']);
         @endphp
     @endif
+
+    @if (!empty($_SESSION['status']) && $_SESSION['status'])
+        <div class="alert alert-success">
+            {{ $_SESSION['msg']}}
+        </div>
+        @php
+            unset($_SESSION['status']);
+            unset($_SESSION['msg']);
+        @endphp
+    @endif
+
 
     <form action="{{ url("admin/products/{$product['id']}/update") }}" enctype="multipart/form-data" method="POST">
         <div class="row">
@@ -44,14 +55,22 @@
                         name="img_thumbnail">
                     <img src="{{ asset($product['img_thumbnail']) }}" alt="" width="80px">
                 </div>
-            </div>
-
-            <div class="col-md-6">
                 <div class="mb-3 mt-3">
                     <label for="overview" class="form-label">Overview:</label>
                     <textarea class="form-control" id="overview" placeholder="Enter overview" name="overview">{{ $product['overview']}}</textarea>
                 </div>
+            </div>
 
+            <div class="col-md-6">
+                <div class="mb-3 mt-3">
+                    <label for="price_regular" class="form-label">Giá gốc:</label>
+                    <input type="number" class="form-control" id="price_regular" placeholder="Enter price_regular" name="price_regular" value="{{ $product['price_regular']}}">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="price_sale" class="form-label">Giá khuyến mãi:</label>
+                    <input type="number" class="form-control" id="price_sale" placeholder="Enter price_sale" name="price_sale" value="{{ $product['price_sale']}}" >
+                </div>
+               
                 <div class="mb-3 mt-3">
                     <label for="content" class="form-label">Content:</label>
                     <textarea class="form-control" id="content" rows="4" placeholder="Enter content" name="content">{{ $product['content']}}</textarea>

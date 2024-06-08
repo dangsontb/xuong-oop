@@ -33,10 +33,13 @@
             <label for="avatar" class="form-label">Avatar:</label>
             <input type="file" class="form-control" id="avatar" placeholder="Enter avatar" name="avatar">
         </div>
-
-        <div class="mb-3 mt-3">
-            <label for="type" class="form-label">Type:</label>
-            <input type="text" class="form-control" id="type" placeholder="Enter type" name="type">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="radio1" name="type" value="admin" checked>
+            <label class="form-check-label" for="radio1">Admin</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="radio2" checked name="type" value="member">
+            <label class="form-check-label" for="radio2">Member</label>
         </div>
 
         <div class="mb-3 mt-3">

@@ -36,10 +36,15 @@
             <input type="file" class="form-control" id="avatar" placeholder="Enter avatar" name="avatar">
             <img src="{{ asset($user['avatar']) }}" alt="" width="100px">
         </div>
-        <div class="mb-3 mt-3">
-            <label for="type" class="form-label">Type:</label>
-            <input type="text" class="form-control" id="type" placeholder="Enter type" name="type"
-                value="{{ $user['type'] }}">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="radio1" name="type" value="admin" 
+            {{ $user['type'] == 'admin' ? 'checked' : '' }} >
+            <label class="form-check-label" for="radio1">Admin</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" id="radio2"  name="type" value="member"
+            {{ $user['type'] == 'member' ? 'checked' : '' }}>
+            <label class="form-check-label" for="radio2">Member</label>
         </div>
 
         <div class="mb-3 mt-3">

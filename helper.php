@@ -44,4 +44,19 @@ if(!function_exists('avoid_login')){ // BỎ qua trang login khi đã đăng nh�
     }
 }
 
+if(!function_exists('avoid_register')){ // BỎ qua trang đăng ký khi đã đăng nhập
+    function avoid_register(){
+        if(is_logged()){
+            
+            if($_SESSION['user']['type'] == 'admin'){
+                header('Location: '. url('admin/'));
+                exit;
+            } 
+    
+            header('Location: '. url());
+            exit;
+        }   
+    }
+}
+
 

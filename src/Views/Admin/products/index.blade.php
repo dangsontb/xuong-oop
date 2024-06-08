@@ -44,8 +44,8 @@
                         </td>
                         <td>{{ $product['name'] }}</td>
                         <td>{{ $product['created_at'] }}</td>
-                        <td>{{ $product['updated_at']}}</td>
-                        <td>{{ $product['c_name']}}</td>
+                        <td>{{ $product['updated_at'] }}</td>
+                        <td>{{ $product['c_name'] }}</td>
                         <td>
 
                             <a class="btn btn-info rounded-pill"
@@ -70,7 +70,8 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                            <a class="page-link " href=" {{ url('admin/products?page=' . $page - 1) }}" aria-label="Previous">
+                            <a class="page-link " href=" {{ url('admin/products?page=' . $page - 1) }}"
+                                aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -79,7 +80,6 @@
                             <li class="page-item {{ $i == $page ? 'active' : '' }}"><a class="page-link"
                                     href="{{ url('admin/products?page=') . $i }}">{{ $i }}</a></li>
                         @endfor
-
 
                         <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
                             <a class="page-link "

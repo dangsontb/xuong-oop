@@ -15,6 +15,7 @@
 
 <body class="crm_body_bg">
 
+    @yield('test')
 
     @include('layouts.partials.nav')
 
