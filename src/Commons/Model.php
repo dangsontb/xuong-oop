@@ -28,6 +28,11 @@ class Model
         $this->queryBuilder = $this->conn->createQueryBuilder();
     }
 
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
     // CRUD
     public function all()
     {
@@ -48,7 +53,7 @@ class Model
 
     public function paginate($page = 1, $perPage = 5)
     {
-        $queryBuilder = clone($this->queryBuilder);
+        $queryBuilder = clone ($this->queryBuilder);
 
         $totalPage = ceil($this->count() / $perPage);
 

@@ -4,8 +4,27 @@ namespace Dangson\XuongOop\Models;
 
 use Dangson\XuongOop\Commons\Model;
 
-class Cart extends Model{
+class Cart extends Model
+{
 
-    private $tableName = 'cart';
+    protected string  $tableName = 'carts';
 
+    public function findByUserID($userID)
+    {
+        return $this->queryBuilder
+            ->select('*')
+            ->from($this->tableName)
+            ->where('user_id = ?')
+            ->setParameter(0, $userID)
+            ->fetchAssociative();
+    }
+
+    public function deleteByUserID($userID)
+    {
+        return $this->queryBuilder
+            ->delete($this->tableName)
+            ->where('user_id = ?')
+            ->setParameter(0, $userID)
+            ->executeQuery();
+    }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Shop
+   Home Filter
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         </div>
 
         <div class="flex-w flex-sb-m p-b-52">
-         
+   
 
             <div class="flex-w flex-c-m m-tb-10">
                 <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
@@ -22,9 +22,20 @@
                     Filter
                 </div>
 
+         
             </div>
 
-            
+            <!-- Search product -->
+            <div class="dis-none panel-search w-full p-t-10 p-b-15">
+                <div class="bor8 dis-flex p-l-15">
+                    <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product"
+                        placeholder="Search">
+                </div>
+            </div>
 
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
@@ -40,6 +51,10 @@
                                     Default
                                 </a>
                             </li>
+
+                           
+
+                      
 
                             <li class="p-b-6">
                                 <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
@@ -118,20 +133,20 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                            <a class="page-link " href=" {{ url('products?page= ' . $page - 1) }}" aria-label="Previous">
+                            <a class="page-link " href=" {{ url('products/category_id/'. $category . '?page=' . $page - 1) }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
 
                         @for ($i = 1; $i <= $totalPage; $i++)
                             <li class="page-item  {{ $i == $page ? 'active' : '' }}"><a class="  page-link"
-                                    href="{{ url('products?page=') . $i }} ">{{ $i }}</a></li>
+                                    href="{{ url('products/category_id/'. $category . '?page=' ) . $i }} ">{{ $i }}</a></li>
                         @endfor
 
 
                         <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
                             <a class="page-link "
-                                href="{{ $page < $totalPage ? url('products?page=' . $page + 1) : '' }}"
+                                href="{{ $page < $totalPage ? url('products/category_id/'. $category . '?page=' . $page + 1) : '' }}"
                                 aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>

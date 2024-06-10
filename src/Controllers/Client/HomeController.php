@@ -23,13 +23,19 @@ class HomeController extends Controller
 
         [$products, $totalPage ] = $this->product->paginateHome($_GET['page'] ?? 1);
 
+        $categories = $this->category->all();
+
         $this->renderViewClient('home', [
-            'products'=> $products,
-            'total'=> $totalPage,
-            'page' => $_GET['page'] ?? 1
+            'products'      => $products,
+            'total'         => $totalPage,
+            'page'          => $_GET['page'] ?? 1,
+            // 'categories'    => $categories
         ]);
     }
     public function shop() {
+
         $this->renderViewClient('products.productDetail');
     }
+    
+    
 }

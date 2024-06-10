@@ -64,7 +64,7 @@
                 <div class="col-md-6 col-lg-5 p-b-30">
                     <div class="p-r-50 p-t-5 p-lr-0-lg">
                         <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                            Lightweight Jacket
+                            {{ $product['name'] }}
                         </h4>
 
                         <span class="mtext-106 cl2">
@@ -72,8 +72,7 @@
                         </span>
 
                         <p class="stext-102 cl3 p-t-23">
-                            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
-                            feugiat.
+                            {{ $product['overview'] }}
                         </p>
 
                         <!--  -->
@@ -118,15 +117,16 @@
 
                             <div class="flex-w flex-r-m p-b-10">
                                 <div class="size-204 flex-w flex-m respon6-next">
-                                    <form action="{{ url('addToCart') }}" method="post" enctype="multipart/form-data">
-
+                                {{-- =======Form ADD TO CART ==================== --}}
+                                    <form action="{{ url('cart/add') }}" method="post" >
+                                        <input type="hidden" name="productID" value="{{$product['id']}}">
                                         <div class="wrap-num-product flex-w m-r-20 m-tb-10">
                                             <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                                 <i class="fs-16 zmdi zmdi-minus"></i>
                                             </div>
 
                                             <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                name="num-product" value="1">
+                                                name="quantity" value="1">
 
                                             <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                 <i class="fs-16 zmdi zmdi-plus"></i>
@@ -138,7 +138,9 @@
                                             Add to cart
                                         
                                         </button>
+
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -153,7 +155,7 @@
                                 </a>
                             </div>
 
-                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+                            {{-- <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
                                 data-tooltip="Facebook">
                                 <i class="fa fa-facebook"></i>
                             </a>
@@ -166,7 +168,7 @@
                             <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
                                 data-tooltip="Google Plus">
                                 <i class="fa fa-google-plus"></i>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

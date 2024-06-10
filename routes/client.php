@@ -18,24 +18,34 @@ use Dangson\XuongOop\Controllers\Client\CartController;
 use Dangson\XuongOop\Controllers\Client\ContactController;
 use Dangson\XuongOop\Controllers\Client\HomeController;
 use Dangson\XuongOop\Controllers\Client\LoginController;
+use Dangson\XuongOop\Controllers\Client\OrderController;
 use Dangson\XuongOop\Controllers\Client\ProductController;
 
-$router->get( '/',                       HomeController::class       . '@index');
+$router->get( '/',                          HomeController::class       . '@index');
 
 
-$router->get( 'about',                  AboutController::class      . '@index');
+$router->get( 'about',                      AboutController::class      . '@index');
 
-$router->get( 'contact',                ContactController::class    . '@index');
-$router->post( 'contact/store',         ContactController::class    . '@store');
+$router->get( 'contact',                    ContactController::class    . '@index');
+$router->post( 'contact/store',             ContactController::class    . '@store');
 
-$router->get( 'productDetail/{id}',     ProductController::class    . '@detail');
-$router->get( 'products',               ProductController::class    . '@index');
+$router->get( 'productDetail/{id}',         ProductController::class    . '@detail');
+$router->get( 'products',                   ProductController::class    . '@index');
+$router->get( 'products/category_id/{id}',  ProductController::class    . '@findByCategory');
 
-$router->get( 'auth/login',              LoginController::class      . '@showFormLogin');
-$router->post( 'auth/handle-login',     LoginController::class      . '@login');
 
-$router->get( 'auth/register',           LoginController::class      . '@showFormRegister');
+$router->get( 'auth/login',                 LoginController::class      . '@showFormLogin');
+$router->post( 'auth/handle-login',         LoginController::class      . '@login');
+$router->get( 'auth/register',              LoginController::class      . '@showFormRegister');
+$router->get( 'auth/logout',                LoginController::class      . '@logout');
 
-$router->post( 'auth/logout',           LoginController::class      . '@logout');
+$router -> post('cart/add',                 CartController::class       . '@add');
+$router -> get('cart/quantityInc',          CartController::class       . '@quantityInc');
+$router -> get('cart/quantityDec',          CartController::class       . '@quantityDec');
+$router -> get('cart/remove',               CartController::class       . '@remove');
 
-$router->get( '/cart',                   CartController::class      . '@cart');
+$router-> get('cart/detail',                CartController::class       . '@detail' );
+
+$router-> post('order/checkout',            OrderController::class      . '@checkout' );
+
+$router-> get('order/momo',                 OrderController::class       . '@momo' );
