@@ -37,19 +37,22 @@
                                     <thead>
                                         <tr>
                                             <th>Sản phẩm</th>
+                                            <th>Ảnh</th>
                                             <th>Số lượng</th>
                                             <th>Giá</th>
-                                            <th>Tổng</th>
+                                            <th>Thành tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($orderDetails as $detail)
                                             <tr>
                                                 <td>{{ $detail['product_name'] }}</td> 
+                                                <td><img src="{{ asset($detail['img_thumbnail']) }}" width="60px" alt=""></td> 
                                                 <td>{{ $detail['quantity'] }}</td>
                                                 <td>{{ $detail['price_sale'] }}</td>
                                                 <td>{{ $detail['quantity'] * $detail['price_sale'] }}</td>
                                             </tr>
+                                           
                                         @endforeach
                                     </tbody>
                                 </table>

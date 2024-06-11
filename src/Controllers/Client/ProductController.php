@@ -22,7 +22,7 @@ class ProductController extends Controller
     
     public function index() {
 
-        [$products, $totalPage] =$this->product->paginateHome($_GET['page'] ?? 1, 9);
+        [$products, $totalPage] =$this->product->paginateHome($_GET['page'] ?? 1, 8);
 
         $this -> renderViewClient('products.index',[
             'products' => $products,

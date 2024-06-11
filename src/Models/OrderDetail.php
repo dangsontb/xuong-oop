@@ -27,7 +27,7 @@ class OrderDetail extends Model
         $queryBuilder = clone ($this->queryBuilder);
 
         return $queryBuilder
-            ->select('od.*,p.name as product_name')
+            ->select('od.*,p.name as product_name, p.img_thumbnail')
             ->from($this->tableName, 'od')
             ->innerJoin('od', 'products', 'p', 'od.product_id=p.id')
             ->where('od.order_id = ?')
