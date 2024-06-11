@@ -13,6 +13,7 @@
 
 // HTTP Method: get, post, put (path), delete, option, head
 
+use Bramus\Router\Router;
 use Dangson\XuongOop\Controllers\Client\AboutController;
 use Dangson\XuongOop\Controllers\Client\CartController;
 use Dangson\XuongOop\Controllers\Client\ContactController;
@@ -37,15 +38,15 @@ $router->get( 'products/category_id/{id}',  ProductController::class    . '@find
 $router->get( 'auth/login',                 LoginController::class      . '@showFormLogin');
 $router->post( 'auth/handle-login',         LoginController::class      . '@login');
 $router->get( 'auth/register',              LoginController::class      . '@showFormRegister');
+$router->post( 'auth/handle-register',      LoginController::class      . '@register');
 $router->get( 'auth/logout',                LoginController::class      . '@logout');
 
 $router -> post('cart/add',                 CartController::class       . '@add');
 $router -> get('cart/quantityInc',          CartController::class       . '@quantityInc');
 $router -> get('cart/quantityDec',          CartController::class       . '@quantityDec');
 $router -> get('cart/remove',               CartController::class       . '@remove');
-
 $router-> get('cart/detail',                CartController::class       . '@detail' );
 
 $router-> post('order/checkout',            OrderController::class      . '@checkout' );
-
 $router-> get('order/momo',                 OrderController::class       . '@momo' );
+$router-> get('order/oderDetail',           OrderController::class       . '@orderHistory');

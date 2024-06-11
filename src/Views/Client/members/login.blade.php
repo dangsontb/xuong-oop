@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="col-lg-12 mt-5">
-        <div class="white_box mb_30">
+    <div class="col-lg-12 " style="margin-top: 100px">
+        <div class="white_box mb_30 mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
 
@@ -39,12 +39,8 @@
                             </form>
 
                             <p>Need an account? <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal"
-                                    href="#"> Sign Up</a></p>
-                            <div class="text-center">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password"
-                                    data-bs-dismiss="modal" class="pass_forget_btn">Forget
-                                    Password?</a>
-                            </div>
+                                    href="{{url('auth/register')}}"> Register</a></p>
+                           
                         </div>
 
                     </div>

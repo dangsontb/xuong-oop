@@ -97,4 +97,13 @@ class Product extends Model
             ->setParameter(0, $category_id)
             ->fetchOne();
     }
+
+    public function countByCategory()
+    {
+        return $this->queryBuilder
+            ->select('category_id, COUNT(*) as total')
+            ->from($this->tableName)
+            ->groupBy('category_id')
+            ->fetchAllAssociative();
+    }
 }

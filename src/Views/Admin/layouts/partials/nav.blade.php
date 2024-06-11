@@ -14,14 +14,15 @@
                 <span>Dashboard</span>
             </a>
         </li>
-      
+
         <li class>
-            <a href="Board.html" aria-expanded="false">
+            <a class="has-arrow" href="{{url('admin/orders')}}" aria-expanded="false">
                 <div class="icon_menu">
-                    <img src="{{asset('assets/admin/img/menu-icon/5.svg') }}" alt>
+                    <img src="{{ asset ('assets/admin/img/menu-icon/10.svg')}}" alt>
                 </div>
-                <span>Board</span>
+                <span>Order</span>
             </a>
+            
         </li>
      
         <li class>

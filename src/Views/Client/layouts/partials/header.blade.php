@@ -60,7 +60,7 @@
 
                 </div>
                 <a href="{{ url('cart/detail') }}"
-                    class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti " data-notify="2">
+                    class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11" data-notify="">
                     <i class="zmdi zmdi-shopping-cart"></i>
                 </a>
 
@@ -73,6 +73,7 @@
 
                     @if (!empty($_SESSION['user']))
                         <a class="dropdown-item" href="{{ url('auth/logout') }}">Logout</a>
+                        <a class="dropdown-item" href="{{url('order/oderDetail')}}">My order</a>
                     @else
                         <a class="dropdown-item" href="{{ url('auth/login') }}">Login</a>
                         <a class="dropdown-item" href="{{ url('auth/register') }}">Register</a>

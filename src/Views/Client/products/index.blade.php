@@ -66,47 +66,54 @@
         </div>
 
         <div class="row isotope-grid">
-
             @foreach ($products as $product)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="{{ asset($product['img_thumbnail']) }}" height="220px" alt="IMG-PRODUCT">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{ asset($product['img_thumbnail']) }}" alt="IMG-PRODUCT">
 
-                        <a href="{{ url('productDetail/' . $product['id']) }}"
-                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
-                            Quick View
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                {{ $product['name'] }}
+                            <a href="{{ url('productDetail/' . $product['id']) }}"
+                                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                Quick View
                             </a>
 
-                            <span class="stext-105 cl3 text-danger ">
-                                {{ $product['price_sale'] ? number_format($product['price_sale']) : '' }}
-                            </span>
-                            <span class="opacity-25}}">
-                                {{ !$product['price_sale'] ? number_format($product['price_regular']) : '' }}
-                            </span>
                         </div>
 
-                        <div class="block2-txt-child2 flex-r p-t-3">
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    {{ $product['name'] }}
+                                </a>
 
-                            <form action="{{ url('cart/add') }}" method="POST">
+                                <span class="stext-105 cl3 text-danger ">
+                                    {{ $product['price_sale'] ? number_format($product['price_sale']) : '' }}
+                                </span>
+                                <span class="opacity-25}}">
+                                    {{ !$product['price_sale'] ? number_format($product['price_regular']) : '' }}
+                                </span>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                    <img class="icon-heart1 dis-block trans-04"
+                                        src="{{ asset('assets/client/images/icons/icon-heart-01.png') }}" alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l"
+                                        src="{{ asset('assets/client/images/icons/icon-heart-02.png') }}" alt="ICON">
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <form action="{{ url('cart/add') }}" method="post">
                                 <input type="hidden" name="productID"  value="{{$product['id']}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="btn btn-secondary btn-sm rounded-pill">Add To Cart</button>
+                                <button type="submit" class="block0-btn flex-c-m stext-103 cl2 size-102 bg0 bor10  p-lr-10 trans-9">Add To Cart</button>
                             </form>
 
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
 
 

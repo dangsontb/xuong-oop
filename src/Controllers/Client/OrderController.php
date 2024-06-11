@@ -23,6 +23,8 @@ class OrderController extends Controller
     private Cart $cart;
     private CartDetail $cartDetail;
 
+    private Product $product;
+
     public function __construct()
     {
         $this->user         = new User();
@@ -30,6 +32,7 @@ class OrderController extends Controller
         $this->orderDetail  = new OrderDetail;
         $this->cartDetail   = new CartDetail;
         $this->cart         = new Cart;
+        $this->product      = new Product();
     }
 
 
@@ -122,7 +125,9 @@ class OrderController extends Controller
                     unset($_SESSION['cart_id']);
                 }
 
-                header("Location: " . url());
+                $_SESSION['success'] = 'Thanh toán thành công';
+
+                header("Location: " . url('order/oderDetail'));
                 exit;
             } else { // MOMOO
                 $_SESSION['info-order'] = [
@@ -213,10 +218,37 @@ class OrderController extends Controller
 
             unset($_SESSION['info-order']);
 
+            $_SESSION['success'] = 'Thanh toán thành công';
 
-
-            header("Location: " . url('cart/detail'));  // order-detail
+            header("Location: " . url('order/oderDetail'));  // order-detail
             exit;
         }
     }
+
+    public function orderHistory()
+    {
+        $userID = $_SESSION['user']['id'] ?? null;
+        if (!$userID) {
+            header('Location: ' . url('login'));
+            exit;
+        }
+
+        $orders = $this->order->findByUserID($userID);
+        $orderDetails = [];
+
+        foreach ($orders as $order) {
+            $orderDetails= $this->orderDetail->findByOrderIDClient($order['id']);
+         
+        }
+        //   echo '<pre>';
+        //     print_r($orderDetails);
+        $this->renderViewClient('orders.orderDetail',
+            [
+                'orders' => $orders,
+                'orderDetails' => $orderDetails,
+            ]
+        );
+    }
+
+    
 }
